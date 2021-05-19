@@ -18,7 +18,22 @@ requests = "^2.25.1"
 saipyspark-testing101 = "saipyspark_testing101.console:main"
 
 [tool.poetry.dev-dependencies]
+pytest = "^6.2.4"
+coverage = {extras = ["toml"], version = "^5.5"}
+pytest-cov = "^2.12.0"
+pytest-mock = "^3.6.1"
 
 [build-system]
 requires = ["poetry-core>=0.12"]
 build-backend = "poetry.masonry.api"
+
+[tool.coverage.paths]
+source = ["src", "*/site-packages"]
+
+[tool.coverage.run]
+branch = true
+source = ["saipyspark_testing101"]
+
+[tool.coverage.report]
+show_missing = true
+fail_under = 100
